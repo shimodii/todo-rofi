@@ -12,7 +12,7 @@ First you need to install rofi from your package manager or use <a href="https:/
 	5: ./install.sh 
 
 it will copy to your path with rofi_todo and you can run it from your application launcher or terminal.
-
+<br>you can also add key binding with keybinding tools!
 # Screenshots
 here some screenshots:
 
