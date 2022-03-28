@@ -24,14 +24,6 @@ configuration {
     display-combi: 					"";
 }
 
-/* @import "styles/black.rasi" */
-
-* {
-    background-color:             	@bg;
-} 
-
-/* colors */
-
 * {
   al:      #00000000;
   bg:      #425775ff;
@@ -45,6 +37,11 @@ configuration {
   purple:  #BA68C8ff;
   cyan:    #4DD0E1ff;
 }
+
+* {
+    background-color:             	@bg;
+} 
+
 window {
     border: 						0px;
     border-color: 					@ac;
