@@ -6,7 +6,8 @@ first_use () {
 	echo "+ ADD TASK" >> ~/.todo/todo_list
 }
 add_task () {
-	rofi -dmenu -p "ADD TASK:"
+	NEW_TASK=$(rofi -dmenu -p "ADD TASK:")
+	echo $NEW_TASK >> ~/.todo/todo_list	
 }
 
 remove_task () {
@@ -26,4 +27,5 @@ if [[ -d ~/.todo ]] ; then
 else
 	first_use
 	choice=$(show_rofi)
+	
 fi
