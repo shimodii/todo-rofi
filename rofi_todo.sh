@@ -1,8 +1,6 @@
 #!/bin/bash 
 
-DIR="/tmp/todo_temp"
-cd $DIR
-touch "+ ADD TASK"
+DIR="~/.todo"
 first_use () {
 	mkdir $DIR
 	cd $DIR
