@@ -1,31 +1,33 @@
 #!/bin/bash 
 
+DIR="/tmp/todo_temp"
+cd $DIR
+touch "+ ADD TASK"
 first_use () {
-	mkdir ~/.todo
-	touch ~/.todo/todo_list
-	echo "+ ADD TASK" >> ~/.todo/todo_list
+	mkdir $DIR
+	cd $DIR
+	touch "+ ADD TASK"
 }
-add_task () {
+new_task () {
 	NEW_TASK=$(rofi -dmenu -p "ADD TASK:")
-	echo $NEW_TASK >> ~/.todo/todo_list	
+	touch /tmp/todo_temp $NEW_TASK
 }
 
-remove_task () {
-	echo
+show_rofi () {
+	ls -1 $DIR | rofi -dmenu -p ">"
 }
 
-show_rofi() {
-	cat ~/.todo/todo_list | rofi -dmenu
-}
-
-if [[ -d ~/.todo ]] ; then
+if [[ -d $DIR ]] ; then
 	choice=$(show_rofi)
 	if [[ $choice = "+ ADD TASK" ]] ; then
-		NEW_TASK=$(add_task)
-		echo $NEW_TASK >> ~/.todo/todo_list
+		NEW_TASK=$(new_task)
+	else
+		cd $DIR
+		rm $choice
 	fi
 else
 	first_use
 	choice=$(show_rofi)
-	
+	cd $DIR
+	rm $choice	
 fi
