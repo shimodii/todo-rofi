@@ -1,31 +1,32 @@
 #!/bin/bash 
 
-DIR="~/.todo"
+DIR_TODO=~/.todo
 first_use () {
-	mkdir $DIR
-	cd $DIR
+	mkdir $DIR_TODO
+	cd $DIR_TODO
 	touch "+ ADD TASK"
 }
 new_task () {
 	NEW_TASK=$(rofi -dmenu -p "ADD TASK:")
-	touch /tmp/todo_temp $NEW_TASK
+	cd $DIR_TODO
+	touch "$NEW_TASK"
 }
 
 show_rofi () {
-	ls -1 $DIR | rofi -dmenu -p ">"
+	ls -1 $DIR_TODO | rofi -dmenu -p ">"
 }
 
-if [[ -d $DIR ]] ; then
+if [[ -d $DIR_TODO ]] ; then
 	choice=$(show_rofi)
 	if [[ $choice = "+ ADD TASK" ]] ; then
 		NEW_TASK=$(new_task)
 	else
-		cd $DIR
-		rm $choice
+		cd $DIR_TODO
+		rm "$choice"
 	fi
 else
 	first_use
 	choice=$(show_rofi)
-	cd $DIR
-	rm $choice	
+	cd $DIR_TODO
+	rm "$choice"
 fi
