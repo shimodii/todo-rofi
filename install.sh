@@ -25,6 +25,7 @@ something
 printf "[ ] copying files to your paths:"
 cp ./full_screen.rasi ~/.config/rofi/ 
 cp ./windowed.rasi ~/.config/rofi/ 
+cp ./task_prompt.rasi ~/.config/rofi
 sudo cp ./rofi_todo.sh /usr/local/bin/rofi_todo
 sleep 2
 clear
